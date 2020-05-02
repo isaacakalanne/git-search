@@ -26,9 +26,8 @@ struct GitHubRequest {
     }
     
     func getRepositories(completion: @escaping(Result<[RepositoryDetail], GitHubError>) -> Void) {
-        var urlRequest = URLRequest(url: resourceURL)
-        urlRequest.setValue("token \(OAUTH_TOKEN)", forHTTPHeaderField: "Authorization")
         
+        let urlRequest = createURLRequest()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             if error == nil {
@@ -53,5 +52,11 @@ struct GitHubRequest {
     
     func getReadMe(completion: @escaping(Result<ReadMe, GitHubError>) -> Void) {
         
+    }
+    
+    func createURLRequest() -> URLRequest {
+        var urlRequest = URLRequest(url: resourceURL)
+        urlRequest.setValue("token \(OAUTH_TOKEN)", forHTTPHeaderField: "Authorization")
+        return urlRequest
     }
 }
