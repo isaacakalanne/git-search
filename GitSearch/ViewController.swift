@@ -16,9 +16,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let repositoryRequest = GitHubRequest(queryString: "/search/repositories?q=Tetris")
+        repositoryRequest.getRepositories { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let repositories):
+                print("success!")
+                self.listOfRepositories = repositories
+            }
+        }
         
-        let githubRequest = GitHubRequest(queryString: "/repos/chvin/react-tetris/readme")
-        githubRequest.getReadMeBase64String { result in
+        let readmeRequest = GitHubRequest(queryString: "/repos/chvin/react-tetris/readme")
+        readmeRequest.getReadMeBase64String { result in
             switch result {
             case .failure(let error):
                 print(error)
