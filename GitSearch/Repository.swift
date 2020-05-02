@@ -17,7 +17,6 @@ struct RepositoryDetail:Decodable {
     var owner:OwnerDetail
     var description:String
     
-    var language:String
     var forks_count:Int
     var open_issues_count:Int
 }

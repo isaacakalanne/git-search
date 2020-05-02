@@ -16,6 +16,7 @@
 		1150CA1B245D93F4005A19DD /* GitSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA1A245D93F4005A19DD /* GitSearchTests.swift */; };
 		1150CA26245D93F4005A19DD /* GitSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA25245D93F4005A19DD /* GitSearchUITests.swift */; };
 		1150CA34245D96F2005A19DD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA33245D96F2005A19DD /* Repository.swift */; };
+		1150CA36245D9AE0005A19DD /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA35245D9AE0005A19DD /* GitHubRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1150CA25245D93F4005A19DD /* GitSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitSearchUITests.swift; sourceTree = "<group>"; };
 		1150CA27245D93F4005A19DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1150CA33245D96F2005A19DD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		1150CA35245D9AE0005A19DD /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				1150CA05245D93ED005A19DD /* SceneDelegate.swift */,
 				1150CA07245D93ED005A19DD /* ViewController.swift */,
 				1150CA33245D96F2005A19DD /* Repository.swift */,
+				1150CA35245D9AE0005A19DD /* GitHubRequest.swift */,
 				1150CA09245D93ED005A19DD /* Main.storyboard */,
 				1150CA0C245D93F3005A19DD /* Assets.xcassets */,
 				1150CA0E245D93F3005A19DD /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				1150CA08245D93ED005A19DD /* ViewController.swift in Sources */,
 				1150CA04245D93ED005A19DD /* AppDelegate.swift in Sources */,
 				1150CA06245D93ED005A19DD /* SceneDelegate.swift in Sources */,
+				1150CA36245D9AE0005A19DD /* GitHubRequest.swift in Sources */,
 				1150CA34245D96F2005A19DD /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
