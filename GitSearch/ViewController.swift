@@ -11,19 +11,20 @@ import UIKit
 class ViewController: UIViewController {
     
     var listOfRepositories = [RepositoryDetail]()
+    var readmeBase64String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let repositoryRequest = GitHubRequest(queryString: "/search/repositories?q=Tetris")
-        repositoryRequest.getRepositories { result in
+        let githubRequest = GitHubRequest(queryString: "/repos/chvin/react-tetris/readme")
+        githubRequest.getReadMeBase64String { result in
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let repositories):
-                print("success!")
-                self.listOfRepositories = repositories
+            case .success(let readmeBase64String):
+                print("success! \(readmeBase64String)")
+                self.readmeBase64String = readmeBase64String
             }
         }
         

@@ -50,8 +50,29 @@ struct GitHubRequest {
         dataTask.resume()
     }
     
-    func getReadMe(completion: @escaping(Result<ReadMe, GitHubError>) -> Void) {
+    func getReadMeBase64String(completion: @escaping(Result<String, GitHubError>) -> Void) {
         
+        let urlRequest = createURLRequest()
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            
+            if error == nil {
+                guard let jsonData = data else {
+                    completion(.failure(.noDataAvailable))
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let readMeResponse = try decoder.decode(ReadMe.self, from: jsonData)
+                    let readMeBase64String = readMeResponse.content
+                    completion(.success(readMeBase64String))
+                } catch {
+                    completion(.failure(.canNotProcessData))
+                }
+            }
+            
+        }
+        dataTask.resume()
     }
     
     func createURLRequest() -> URLRequest {
