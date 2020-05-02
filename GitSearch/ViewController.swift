@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let repositoryRequest = GitHubRequest(searchTerm: "Tetris")
+        let repositoryRequest = GitHubRequest(queryString: "/search/repositories?q=Tetris")
         repositoryRequest.getRepositories { result in
             switch result {
             case .failure(let error):
@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         }
         
     }
-
 
 }
 

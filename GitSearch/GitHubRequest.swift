@@ -16,9 +16,10 @@ enum GitHubError:Error {
 struct GitHubRequest {
     let resourceURL:URL
     let OAUTH_TOKEN = "4e925ba7687aff26103419bfb6362699f5b52abf"
+    let baseURL = "https://api.github.com"
     
-    init (searchTerm: String) {
-        let resourceString = "https://api.github.com/search/repositories?q=\(searchTerm)"
+    init (queryString: String) {
+        let resourceString = baseURL + queryString
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         
         self.resourceURL = resourceURL
@@ -48,5 +49,9 @@ struct GitHubRequest {
             
         }
         dataTask.resume()
+    }
+    
+    func getReadMe(completion: @escaping(Result<ReadMe, GitHubError>) -> Void) {
+        
     }
 }
