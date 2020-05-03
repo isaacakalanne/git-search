@@ -95,10 +95,52 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG2-Ib-o4Q">
-                                <rect key="frame" x="114" y="137" width="186" height="70"/>
+                                <rect key="frame" x="82" y="137" width="250" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="A09-HW-lck"/>
-                                    <constraint firstAttribute="width" constant="186" id="vxL-qh-LiM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="pOl-a0-17H"/>
+                                    <constraint firstAttribute="width" constant="250" id="vxL-qh-LiM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Issues:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-uF-1JP">
+                                <rect key="frame" x="10" y="197" width="115" height="34"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="2km-ee-2Hj"/>
+                                    <constraint firstAttribute="height" constant="34" id="Ulv-ab-y6H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3X-yU-9du">
+                                <rect key="frame" x="135" y="203.5" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="rld-Yl-Rmu"/>
+                                    <constraint firstAttribute="height" constant="21" id="yCt-fZ-rxk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fork Count:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeS-IX-EfR">
+                                <rect key="frame" x="10" y="241" width="115" height="34"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="0og-rg-EUE"/>
+                                    <constraint firstAttribute="height" constant="34" id="FF6-AP-93c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbG-fd-f2p">
+                                <rect key="frame" x="135" y="247.5" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="L3d-8C-e2W"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="aTr-ev-8ux"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -107,20 +149,30 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="EbG-fd-f2p" firstAttribute="leading" secondItem="eeS-IX-EfR" secondAttribute="trailing" constant="10" id="7Zd-qR-b3s"/>
+                            <constraint firstItem="v2u-uF-1JP" firstAttribute="top" secondItem="EG2-Ib-o4Q" secondAttribute="bottom" constant="20" id="9Ij-oC-Qu8"/>
                             <constraint firstItem="hs9-RH-Vb4" firstAttribute="top" secondItem="geP-dp-WCO" secondAttribute="top" constant="13" id="Avw-OH-ehQ"/>
                             <constraint firstItem="hs9-RH-Vb4" firstAttribute="centerX" secondItem="LOz-Cg-YCk" secondAttribute="centerX" id="Grv-vr-SES"/>
+                            <constraint firstItem="S3X-yU-9du" firstAttribute="centerY" secondItem="v2u-uF-1JP" secondAttribute="centerY" id="Rtn-XJ-93g"/>
+                            <constraint firstItem="eeS-IX-EfR" firstAttribute="top" secondItem="v2u-uF-1JP" secondAttribute="bottom" constant="10" id="VVn-zZ-TcS"/>
+                            <constraint firstItem="v2u-uF-1JP" firstAttribute="leading" secondItem="geP-dp-WCO" secondAttribute="leading" constant="10" id="ZYz-R4-mlx"/>
                             <constraint firstItem="6Tv-Sp-41F" firstAttribute="trailing" secondItem="geP-dp-WCO" secondAttribute="trailing" id="bWe-mX-cxH"/>
                             <constraint firstItem="6Tv-Sp-41F" firstAttribute="top" secondItem="geP-dp-WCO" secondAttribute="top" id="fhe-YO-bSH"/>
                             <constraint firstItem="6Tv-Sp-41F" firstAttribute="leading" secondItem="geP-dp-WCO" secondAttribute="leading" id="hww-x9-dyI"/>
-                            <constraint firstItem="EG2-Ib-o4Q" firstAttribute="top" secondItem="hs9-RH-Vb4" secondAttribute="bottom" constant="10" id="oCi-gW-lpL"/>
+                            <constraint firstItem="S3X-yU-9du" firstAttribute="leading" secondItem="v2u-uF-1JP" secondAttribute="trailing" constant="10" id="mU3-3C-Uki"/>
                             <constraint firstItem="EG2-Ib-o4Q" firstAttribute="centerX" secondItem="hs9-RH-Vb4" secondAttribute="centerX" id="q3L-MT-W15"/>
+                            <constraint firstItem="EbG-fd-f2p" firstAttribute="centerY" secondItem="eeS-IX-EfR" secondAttribute="centerY" id="qLQ-qA-zfM"/>
+                            <constraint firstItem="EbG-fd-f2p" firstAttribute="leading" secondItem="S3X-yU-9du" secondAttribute="leading" id="vGa-3O-1Rp"/>
+                            <constraint firstItem="EG2-Ib-o4Q" firstAttribute="top" secondItem="hs9-RH-Vb4" secondAttribute="bottom" constant="10" id="xhq-VY-ekR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="geP-dp-WCO"/>
                     </view>
                     <navigationItem key="navigationItem" id="7ab-NL-V4G"/>
                     <connections>
                         <outlet property="coverImageView" destination="6Tv-Sp-41F" id="tkj-Ki-vwu"/>
+                        <outlet property="forkCountTitleLabel" destination="eeS-IX-EfR" id="wOK-bZ-pnc"/>
                         <outlet property="fullNameLabel" destination="EG2-Ib-o4Q" id="KwC-T7-deZ"/>
+                        <outlet property="openIssuesTitleLabel" destination="v2u-uF-1JP" id="vqF-2N-6gg"/>
                         <outlet property="profilePictureImageView" destination="hs9-RH-Vb4" id="SFS-et-0L0"/>
                     </connections>
                 </viewController>
