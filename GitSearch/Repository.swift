@@ -13,16 +13,17 @@ struct Repositories:Decodable {
 }
 
 struct RepositoryDetail:Decodable {
-    var name:String
-    var owner:OwnerDetail
-    var description:String
+    var name:String?
+    var full_name:String?
+    var owner:OwnerDetail?
+    var description:String?
     
-    var forks_count:Int
-    var open_issues_count:Int
+    var forks_count:Int?
+    var open_issues_count:Int?
 }
 
 struct OwnerDetail:Decodable {
-    var login:String
-    var id:Int
-    var avatar_url:String
+    var login:String?
+    var id:Int?
+    var avatar_url:String?
 }

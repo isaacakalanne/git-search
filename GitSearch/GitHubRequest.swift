@@ -64,7 +64,7 @@ struct GitHubRequest {
                 do {
                     let decoder = JSONDecoder()
                     let readMeResponse = try decoder.decode(ReadMe.self, from: jsonData)
-                    let readMeBase64String = readMeResponse.content
+                    let readMeBase64String = readMeResponse.content ?? ""
                     completion(.success(readMeBase64String))
                 } catch {
                     completion(.failure(.canNotProcessData))

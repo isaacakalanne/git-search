@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var searchTextField: UITextField!
     
@@ -21,16 +21,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repositoryRequest = GitHubRequest(queryString: "/search/repositories?q=Tetris")
-        repositoryRequest.getRepositories { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let repositories):
-                print("success!")
-                self.listOfRepositories = repositories
-            }
-        }
+        searchTextField.delegate = self
+        repositoriesTableView.separatorStyle = .none
         
         let readmeRequest = GitHubRequest(queryString: "/repos/chvin/react-tetris/readme")
         readmeRequest.getReadMeBase64String { result in
@@ -45,25 +37,59 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("Pressed Go!")
+        if textField == searchTextField {
+            let rawSearchTerm = textField.text ?? ""
+            if rawSearchTerm != "" {
+                let formattedSearchTerm = formatStringToSearchTerm(rawSearchTerm)
+                getRepositories(withSearchTerm: formattedSearchTerm)
+                searchTextField.resignFirstResponder()
+            }
+        }
+        return false
+    }
+    
+    func getRepositories(withSearchTerm searchTerm : String) {
+        let repositoryRequest = GitHubRequest(queryString: "/search/repositories?q=\(searchTerm)")
+        repositoryRequest.getRepositories { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let repositories):
+                print("success!")
+                self.listOfRepositories = repositories
+                DispatchQueue.main.sync {
+                    self.repositoriesTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func formatStringToSearchTerm(_ inputString : String) -> String {
+        let outputString = inputString.replacingOccurrences(of: " ", with: "+")
+        return outputString
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return listOfRepositories.count
     }
 
-    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        // create a new cell if needed or reuse an old one
         guard let cell:UITableViewCell = repositoriesTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) else {
             fatalError("Could not initialise cell")
         }
-
-        // set the text from the data model
-        cell.textLabel?.text = "Text example here!"
+        
+        cell.selectionStyle = .none
+        
+        let repositoryDetail = self.listOfRepositories[indexPath.row]
+        
+        cell.textLabel?.text = repositoryDetail.name ?? "No Name"
 
         return cell
     }
 
-    // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
