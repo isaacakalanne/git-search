@@ -10,12 +10,17 @@ import UIKit
 
 class DetailViewController : UIViewController {
     
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
     var repositoryDetail:RepositoryDetail?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let login = repositoryDetail?.owner?.login
-        print(login ?? "No login")
+        
+        fullNameLabel.text = repositoryDetail?.full_name ?? "No name"
+        
     }
     
 }
