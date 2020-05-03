@@ -16,23 +16,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cellReuseIdentifier = "repositoriesTableViewCell"
     
     var listOfRepositories = [RepositoryDetail]()
-    var readmeBase64String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchTextField.delegate = self
-        
-        let readmeRequest = GitHubRequest(queryString: "/repos/chvin/react-tetris/readme")
-        readmeRequest.getReadMeBase64String { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let readmeBase64String):
-                print("success! \(readmeBase64String)")
-                self.readmeBase64String = readmeBase64String
-            }
-        }
         
     }
     
