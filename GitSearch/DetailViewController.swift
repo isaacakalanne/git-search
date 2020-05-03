@@ -16,6 +16,8 @@ class DetailViewController : UIViewController {
     @IBOutlet weak var openIssuesTitleLabel: UILabel!
     @IBOutlet weak var forkCountTitleLabel: UILabel!
     
+    @IBOutlet weak var readMeTitleLabel: UILabel!
+    @IBOutlet weak var readMeTextView: UITextView!
     var repositoryDetail:RepositoryDetail?
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class DetailViewController : UIViewController {
         roundCorners(ofView: profilePictureImageView)
         roundCorners(ofView: openIssuesTitleLabel)
         roundCorners(ofView: forkCountTitleLabel)
+        roundCorners(ofView: readMeTitleLabel)
     }
     
     func setBorder(forView view : UIView) {
