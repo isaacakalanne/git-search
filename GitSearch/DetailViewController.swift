@@ -76,9 +76,7 @@ class DetailViewController : UIViewController {
             case .success(let readmeBase64String):
                 
                 self.readMeString = self.decodeBase64String(readmeBase64String)
-                DispatchQueue.main.async {
-                    self.readMeTextView.text = self.readMeString
-                }
+                self.updateReadMeTextView()
                 
             }
         }
@@ -87,6 +85,16 @@ class DetailViewController : UIViewController {
     func displayReadMeAsNotAvailable() {
         DispatchQueue.main.async {
             self.readMeTextView.text = self.readMeNotAvailable
+        }
+    }
+    
+    func updateReadMeTextView() {
+        DispatchQueue.main.async {
+            if self.readMeString == "" {
+                self.readMeTextView.text = "Readme is empty."
+            } else {
+                self.readMeTextView.text = self.readMeString
+            }
         }
     }
     
@@ -108,7 +116,8 @@ class DetailViewController : UIViewController {
         DispatchQueue.global().async {
             let url = URL(string: urlString)
             guard let data = try? Data(contentsOf: url!) else {
-                fatalError("Could not download profile picture image")
+                print("Could not download profile picture image")
+                return
             }
             DispatchQueue.main.async {
                 self.profilePictureImageView.image = UIImage(data: data)

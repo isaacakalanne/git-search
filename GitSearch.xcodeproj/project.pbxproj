@@ -20,6 +20,7 @@
 		1150CA3A245DD4EE005A19DD /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA39245DD4EE005A19DD /* ReadMe.swift */; };
 		1150CA3C245F1F4D005A19DD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA3B245F1F4D005A19DD /* DetailViewController.swift */; };
 		11A347C2245F81E900240976 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A347C1245F81E900240976 /* TitleLabel.swift */; };
+		11A347C4245F899800240976 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A347C3245F899800240976 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1150CA39245DD4EE005A19DD /* ReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMe.swift; sourceTree = "<group>"; };
 		1150CA3B245F1F4D005A19DD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		11A347C1245F81E900240976 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		11A347C3245F899800240976 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				1150CA3B245F1F4D005A19DD /* DetailViewController.swift */,
 				11A347C1245F81E900240976 /* TitleLabel.swift */,
 				1150CA33245D96F2005A19DD /* Repository.swift */,
+				11A347C3245F899800240976 /* Constants.swift */,
 				1150CA39245DD4EE005A19DD /* ReadMe.swift */,
 				1150CA35245D9AE0005A19DD /* GitHubRequest.swift */,
 				1150CA09245D93ED005A19DD /* Main.storyboard */,
@@ -282,6 +285,7 @@
 				11A347C2245F81E900240976 /* TitleLabel.swift in Sources */,
 				1150CA34245D96F2005A19DD /* Repository.swift in Sources */,
 				1150CA3C245F1F4D005A19DD /* DetailViewController.swift in Sources */,
+				11A347C4245F899800240976 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

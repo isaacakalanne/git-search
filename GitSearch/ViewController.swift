@@ -77,6 +77,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let repoDetail = self.listOfRepositories[indexPath.row]
+        let fullName = repoDetail.full_name
+        UserDefaults.standard.set(fullName, forKey: Constants.Keys.fullName)
         self.performSegue(withIdentifier: "openDetailViewSegue", sender: repoDetail)
     }
     

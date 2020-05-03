@@ -10,6 +10,8 @@ import UIKit
 
 class TitleLabel : UILabel {
     
+    let coloursArray:[UIColor] = [.systemBlue, .systemIndigo, .systemPink, .systemTeal, .systemOrange, .systemPurple]
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.formatLabel()
@@ -24,7 +26,18 @@ class TitleLabel : UILabel {
     func formatLabel() {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.frame.size.height / 2
-        self.backgroundColor = UIColor.systemBlue
+        self.backgroundColor = getLabelBackgroundColour()
+    }
+    
+    func getLabelBackgroundColour() -> UIColor {
+        let colourIndex = calculateColourIndex()
+        return coloursArray[colourIndex]
+    }
+    
+    func calculateColourIndex() -> Int {
+        let fullName = UserDefaults.standard.string(forKey: Constants.Keys.fullName)
+        let nameLength = fullName?.count ?? 0
+        return nameLength % coloursArray.count
     }
     
 }
