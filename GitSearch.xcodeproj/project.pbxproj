@@ -18,6 +18,7 @@
 		1150CA34245D96F2005A19DD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA33245D96F2005A19DD /* Repository.swift */; };
 		1150CA36245D9AE0005A19DD /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA35245D9AE0005A19DD /* GitHubRequest.swift */; };
 		1150CA3A245DD4EE005A19DD /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA39245DD4EE005A19DD /* ReadMe.swift */; };
+		1150CA3C245F1F4D005A19DD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CA3B245F1F4D005A19DD /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		1150CA33245D96F2005A19DD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		1150CA35245D9AE0005A19DD /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
 		1150CA39245DD4EE005A19DD /* ReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMe.swift; sourceTree = "<group>"; };
+		1150CA3B245F1F4D005A19DD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				1150CA03245D93ED005A19DD /* AppDelegate.swift */,
 				1150CA05245D93ED005A19DD /* SceneDelegate.swift */,
 				1150CA07245D93ED005A19DD /* ViewController.swift */,
+				1150CA3B245F1F4D005A19DD /* DetailViewController.swift */,
 				1150CA33245D96F2005A19DD /* Repository.swift */,
 				1150CA39245DD4EE005A19DD /* ReadMe.swift */,
 				1150CA35245D9AE0005A19DD /* GitHubRequest.swift */,
@@ -274,6 +277,7 @@
 				1150CA3A245DD4EE005A19DD /* ReadMe.swift in Sources */,
 				1150CA36245D9AE0005A19DD /* GitHubRequest.swift in Sources */,
 				1150CA34245D96F2005A19DD /* Repository.swift in Sources */,
+				1150CA3C245F1F4D005A19DD /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

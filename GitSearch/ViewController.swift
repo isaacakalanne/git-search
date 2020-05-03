@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         searchTextField.delegate = self
-        repositoriesTableView.separatorStyle = .none
         
         let readmeRequest = GitHubRequest(queryString: "/repos/chvin/react-tetris/readme")
         readmeRequest.getReadMeBase64String { result in
@@ -81,8 +80,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fatalError("Could not initialise cell")
         }
         
-        cell.selectionStyle = .none
-        
         let repositoryDetail = self.listOfRepositories[indexPath.row]
         
         cell.textLabel?.text = repositoryDetail.name ?? "No Name"
@@ -91,7 +88,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        let repoDetail = self.listOfRepositories[indexPath.row]
+        self.performSegue(withIdentifier: "openDetailViewSegue", sender: repoDetail)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as? DetailViewController
+        destinationVC?.repositoryDetail = sender as? RepositoryDetail
+        
     }
 
 }
