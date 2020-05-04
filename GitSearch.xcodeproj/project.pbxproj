@@ -116,7 +116,7 @@
 				11A8E9BC245F9D4500A9D6F0 /* Custom Classes */,
 				11A8E9BA245F9CEA00A9D6F0 /* DecodableStructs */,
 				11A8E9BE245F9D7900A9D6F0 /* Data Requests */,
-				11A347C3245F899800240976 /* Constants.swift */,
+				11A8E9BF245FA19A00A9D6F0 /* ConstantsTest */,
 				1150CA09245D93ED005A19DD /* Main.storyboard */,
 				1150CA0C245D93F3005A19DD /* Assets.xcassets */,
 				1150CA0E245D93F3005A19DD /* LaunchScreen.storyboard */,
@@ -184,6 +184,14 @@
 				1150CA35245D9AE0005A19DD /* GitHubRequest.swift */,
 			);
 			path = "Data Requests";
+			sourceTree = "<group>";
+		};
+		11A8E9BF245FA19A00A9D6F0 /* ConstantsTest */ = {
+			isa = PBXGroup;
+			children = (
+				11A347C3245F899800240976 /* Constants.swift */,
+			);
+			name = ConstantsTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
