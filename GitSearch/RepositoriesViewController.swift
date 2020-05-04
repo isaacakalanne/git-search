@@ -39,6 +39,7 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
                 searchTextField.resignFirstResponder()
             }
         }
+        
         return false
     }
     
@@ -90,10 +91,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let destinationVC = segue.destination as? DetailViewController
         destinationVC?.repositoryDetail = sender as? RepositoryDetail
-        
     }
 
 }
