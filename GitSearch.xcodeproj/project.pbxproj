@@ -111,11 +111,11 @@
 		1150CA02245D93ED005A19DD /* GitSearch */ = {
 			isa = PBXGroup;
 			children = (
-				11A8E9BD245F9D5800A9D6F0 /* Delegates */,
-				11A8E9BB245F9D0A00A9D6F0 /* ViewControllers */,
-				11A8E9BC245F9D4500A9D6F0 /* Custom Classes */,
-				11A8E9BA245F9CEA00A9D6F0 /* DecodableStructs */,
-				11A8E9BE245F9D7900A9D6F0 /* Data Requests */,
+				11A8E9C3245FA22C00A9D6F0 /* Delegates */,
+				11A8E9C4245FA23C00A9D6F0 /* View Controllers */,
+				11A8E9C6245FA25100A9D6F0 /* Custom Classes */,
+				11A8E9C7245FA26700A9D6F0 /* Decodable Structs */,
+				11A8E9C2245FA21000A9D6F0 /* Data Requests */,
 				11A8E9BF245FA19A00A9D6F0 /* ConstantsTest */,
 				1150CA09245D93ED005A19DD /* Main.storyboard */,
 				1150CA0C245D93F3005A19DD /* Assets.xcassets */,
@@ -143,55 +143,55 @@
 			path = GitSearchUITests;
 			sourceTree = "<group>";
 		};
-		11A8E9BA245F9CEA00A9D6F0 /* DecodableStructs */ = {
-			isa = PBXGroup;
-			children = (
-				1150CA33245D96F2005A19DD /* Repository.swift */,
-				1150CA39245DD4EE005A19DD /* ReadMe.swift */,
-			);
-			path = DecodableStructs;
-			sourceTree = "<group>";
-		};
-		11A8E9BB245F9D0A00A9D6F0 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				1150CA07245D93ED005A19DD /* RepositoriesViewController.swift */,
-				1150CA3B245F1F4D005A19DD /* DetailViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		11A8E9BC245F9D4500A9D6F0 /* Custom Classes */ = {
-			isa = PBXGroup;
-			children = (
-				11A347C1245F81E900240976 /* TitleLabel.swift */,
-			);
-			path = "Custom Classes";
-			sourceTree = "<group>";
-		};
-		11A8E9BD245F9D5800A9D6F0 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				1150CA03245D93ED005A19DD /* AppDelegate.swift */,
-				1150CA05245D93ED005A19DD /* SceneDelegate.swift */,
-			);
-			path = Delegates;
-			sourceTree = "<group>";
-		};
-		11A8E9BE245F9D7900A9D6F0 /* Data Requests */ = {
-			isa = PBXGroup;
-			children = (
-				1150CA35245D9AE0005A19DD /* GitHubRequest.swift */,
-			);
-			path = "Data Requests";
-			sourceTree = "<group>";
-		};
 		11A8E9BF245FA19A00A9D6F0 /* ConstantsTest */ = {
 			isa = PBXGroup;
 			children = (
 				11A347C3245F899800240976 /* Constants.swift */,
 			);
 			name = ConstantsTest;
+			sourceTree = "<group>";
+		};
+		11A8E9C2245FA21000A9D6F0 /* Data Requests */ = {
+			isa = PBXGroup;
+			children = (
+				1150CA35245D9AE0005A19DD /* GitHubRequest.swift */,
+			);
+			name = "Data Requests";
+			sourceTree = "<group>";
+		};
+		11A8E9C3245FA22C00A9D6F0 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1150CA03245D93ED005A19DD /* AppDelegate.swift */,
+				1150CA05245D93ED005A19DD /* SceneDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		11A8E9C4245FA23C00A9D6F0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1150CA07245D93ED005A19DD /* RepositoriesViewController.swift */,
+				1150CA3B245F1F4D005A19DD /* DetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		11A8E9C6245FA25100A9D6F0 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11A347C1245F81E900240976 /* TitleLabel.swift */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		11A8E9C7245FA26700A9D6F0 /* Decodable Structs */ = {
+			isa = PBXGroup;
+			children = (
+				1150CA33245D96F2005A19DD /* Repository.swift */,
+				1150CA39245DD4EE005A19DD /* ReadMe.swift */,
+			);
+			name = "Decodable Structs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
