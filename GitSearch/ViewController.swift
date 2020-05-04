@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var repositoriesTableView: UITableView!
+    
     let cellReuseID = Constants.Identifiers.repositoriesTableViewCellID
     let detailViewSegueID = Constants.Identifiers.detailViewSegueID
     let noNameAvailable = Constants.Failures.noNameAvailable

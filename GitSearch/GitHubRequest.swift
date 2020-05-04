@@ -17,7 +17,7 @@ struct GitHubRequest {
     
     let resourceURL:URL
     let OAUTH_TOKEN = Constants.Keys.OAUTH_TOKEN
-    let baseURLString = "https://api.github.com"
+    let baseURLString = Constants.GitRequests.BaseURLString
     
     init (queryString: String) {
         let resourceString = baseURLString + queryString

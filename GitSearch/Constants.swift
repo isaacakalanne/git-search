@@ -12,6 +12,10 @@ struct Constants {
     
     static let EmptyString = ""
     
+    struct GitRequests {
+        static let BaseURLString = "https://api.github.com"
+    }
+    
     struct Identifiers {
         static let repositoriesTableViewCellID = "repositoriesTableViewCell"
         static let detailViewSegueID = "openDetailViewSegue"
