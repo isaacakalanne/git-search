@@ -52,6 +52,7 @@ struct GitHubRequest {
                 } catch {
                     completion(.failure(.canNotProcessData))
                 }
+                
             }
             
         }
@@ -76,6 +77,7 @@ struct GitHubRequest {
                 } catch {
                     completion(.failure(.canNotProcessData))
                 }
+                
             }
             
         }
