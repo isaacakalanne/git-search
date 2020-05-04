@@ -13,9 +13,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var repositoriesTableView: UITableView!
-    let cellReuseIdentifier = "repositoriesTableViewCell"
+    let cellReuseID = Constants.Identifiers.repositoriesTableViewCellID
+    let detailViewSegueID = Constants.Identifiers.detailViewSegueID
+    let noNameAvailable = Constants.Failures.noNameAvailable
+    let couldNotInitialiseCell = Constants.Failures.couldNotInitiaiseCell
     
     var listOfRepositories = [RepositoryDetail]()
+    
+    let validChars = Constants.Sets.validSearchTermChars
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +30,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("Pressed Go!")
         if textField == searchTextField {
-            let rawSearchTerm = textField.text ?? ""
-            if rawSearchTerm != "" {
+            let rawSearchTerm = textField.text ?? Constants.EmptyString
+            if rawSearchTerm != Constants.EmptyString {
                 let formattedSearchTerm = formatStringToSearchTerm(rawSearchTerm)
                 getRepositories(withSearchTerm: formattedSearchTerm)
                 searchTextField.resignFirstResponder()
@@ -38,13 +42,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getRepositories(withSearchTerm searchTerm : String) {
+        
         let repositoryRequest = GitHubRequest(queryString: "/search/repositories?q=\(searchTerm)")
         repositoryRequest.getRepositories { result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let repositories):
-                print("success!")
                 self.listOfRepositories = repositories
                 DispatchQueue.main.sync {
                     self.repositoriesTableView.reloadData()
@@ -54,7 +58,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func formatStringToSearchTerm(_ inputString : String) -> String {
-        let outputString = inputString.replacingOccurrences(of: " ", with: "+")
+        let filteredString = inputString.filter { validChars.contains($0) }
+        let outputString = filteredString.replacingOccurrences(of: " ", with: "+")
+        
         return outputString
     }
     
@@ -64,13 +70,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell:UITableViewCell = repositoriesTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) else {
-            fatalError("Could not initialise cell")
+        guard let cell:UITableViewCell = repositoriesTableView.dequeueReusableCell(withIdentifier: cellReuseID) else {
+            fatalError(couldNotInitialiseCell)
         }
         
         let repositoryDetail = self.listOfRepositories[indexPath.row]
         
-        cell.textLabel?.text = repositoryDetail.name ?? "No Name"
+        cell.textLabel?.text = repositoryDetail.name ?? noNameAvailable
 
         return cell
     }
@@ -79,7 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let repoDetail = self.listOfRepositories[indexPath.row]
         let fullName = repoDetail.full_name
         UserDefaults.standard.set(fullName, forKey: Constants.Keys.fullName)
-        self.performSegue(withIdentifier: "openDetailViewSegue", sender: repoDetail)
+        self.performSegue(withIdentifier: detailViewSegueID, sender: repoDetail)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

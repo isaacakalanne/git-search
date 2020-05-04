@@ -14,13 +14,16 @@ enum GitHubError:Error {
 }
 
 struct GitHubRequest {
+    
     let resourceURL:URL
-    let OAUTH_TOKEN = "4e925ba7687aff26103419bfb6362699f5b52abf"
-    let baseURL = "https://api.github.com"
+    let OAUTH_TOKEN = Constants.Keys.OAUTH_TOKEN
+    let baseURLString = "https://api.github.com"
     
     init (queryString: String) {
-        let resourceString = baseURL + queryString
-        guard let resourceURL = URL(string: resourceString) else {fatalError()}
+        let resourceString = baseURLString + queryString
+        guard let resourceURL = URL(string: resourceString) else {
+            fatalError(Constants.Failures.couldNotCreateURL)
+        }
         
         self.resourceURL = resourceURL
     }
@@ -64,7 +67,7 @@ struct GitHubRequest {
                 do {
                     let decoder = JSONDecoder()
                     let readMeResponse = try decoder.decode(ReadMe.self, from: jsonData)
-                    let readMeBase64String = readMeResponse.content ?? ""
+                    let readMeBase64String = readMeResponse.content ?? Constants.EmptyString
                     completion(.success(readMeBase64String))
                 } catch {
                     completion(.failure(.canNotProcessData))

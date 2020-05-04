@@ -15,30 +15,43 @@ class DetailViewController : UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     
     @IBOutlet weak var openIssuesTitleLabel: UILabel!
-    
     @IBOutlet weak var openIssuesLabel: UILabel!
     @IBOutlet weak var forkCountLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var readMeTextView: UITextView!
     
+    // Strings mainly used for guard-let failures
+    let couldNotDownloadProfilePicture = Constants.Failures.couldNotDownloadProfilePicture
+    let readMeIsEmpty = Constants.Failures.readMeIsEmpty
+    let readMeNotAvailable = Constants.Failures.readMeNotAvailable
+    let notAvailable = Constants.Failures.notAvailable
+    let noFullNameAvailable = Constants.Failures.noFullNameAvailable
+    let noNameAvailable = Constants.Failures.noNameAvailable
+    let noDescriptionAvailable = Constants.Failures.noDescriptionAvailable
+    
     var repositoryDetail:RepositoryDetail?
-    var readMeString = ""
-    let readMeNotAvailable = "No readme available."
+    var readMeString = Constants.EmptyString
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // The coverImageView background colour is set depending on the background colour used by the TitleLabel custom class.
         coverImageView.backgroundColor = openIssuesTitleLabel.backgroundColor
-        
-        setProfilePictureImage(fromURLString: repositoryDetail?.owner?.avatar_url ?? "")
+        formatProfilePicture()
+        setTextForViews()
+    }
+    
+    func formatProfilePicture() {
+        setProfilePicture(fromURLString: repositoryDetail?.owner?.avatar_url ?? Constants.EmptyString)
         roundCorners(ofView: profilePictureImageView)
         setBorder(forView: profilePictureImageView)
-        fullNameLabel.text = repositoryDetail?.full_name ?? "No name available."
-        
+    }
+    
+    func setTextForViews() {
+        fullNameLabel.text = repositoryDetail?.full_name ?? noNameAvailable
         setCountLabelsText()
-        descriptionTextView.text = repositoryDetail?.description ?? "No description available."
+        descriptionTextView.text = repositoryDetail?.description ?? noDescriptionAvailable
         setReadMeText()
-        
     }
     
     func roundCorners(ofView view : UIView) {
@@ -58,12 +71,12 @@ class DetailViewController : UIViewController {
         if count != -1 {
             label.text = String(count)
         } else {
-            label.text = "Not available"
+            label.text = notAvailable
         }
     }
     
     func setReadMeText() {
-        let fullName = repositoryDetail?.full_name ?? ""
+        let fullName = repositoryDetail?.full_name ?? noFullNameAvailable
         let readmeRequest = GitHubRequest(queryString: "/repos/\(fullName)/readme")
         readmeRequest.getReadMeBase64String { result in
             
@@ -84,14 +97,14 @@ class DetailViewController : UIViewController {
     
     func displayReadMeAsNotAvailable() {
         DispatchQueue.main.async {
-            self.readMeTextView.text = self.readMeNotAvailable
+            self.readMeTextView.text = Constants.Failures.readMeNotAvailable
         }
     }
     
     func updateReadMeTextView() {
         DispatchQueue.main.async {
-            if self.readMeString == "" {
-                self.readMeTextView.text = "Readme is empty."
+            if self.readMeString == Constants.EmptyString {
+                self.readMeTextView.text = self.readMeIsEmpty
             } else {
                 self.readMeTextView.text = self.readMeString
             }
@@ -112,11 +125,11 @@ class DetailViewController : UIViewController {
         view.layer.borderWidth = 5
     }
     
-    func setProfilePictureImage(fromURLString urlString : String) {
+    func setProfilePicture(fromURLString urlString : String) {
         DispatchQueue.global().async {
             let url = URL(string: urlString)
             guard let data = try? Data(contentsOf: url!) else {
-                print("Could not download profile picture image")
+                print(self.couldNotDownloadProfilePicture)
                 return
             }
             DispatchQueue.main.async {
