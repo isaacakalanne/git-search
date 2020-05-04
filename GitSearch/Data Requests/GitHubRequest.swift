@@ -16,6 +16,7 @@ enum GitHubError:Error {
 struct GitHubRequest {
     
     let resourceURL:URL
+    let urlRequest:URLRequest
     let OAUTH_TOKEN = Constants.Keys.OAUTH_TOKEN
     let baseURLString = Constants.GitRequests.BaseURLString
     
@@ -26,11 +27,15 @@ struct GitHubRequest {
         }
         
         self.resourceURL = resourceURL
+        
+        var urlRequest = URLRequest(url: resourceURL)
+        urlRequest.setValue("token \(OAUTH_TOKEN)", forHTTPHeaderField: "Authorization")
+        self.urlRequest = urlRequest
+        
     }
     
     func getRepositories(completion: @escaping(Result<[RepositoryDetail], GitHubError>) -> Void) {
         
-        let urlRequest = createURLRequest()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             if error == nil {
@@ -55,7 +60,6 @@ struct GitHubRequest {
     
     func getReadMeBase64String(completion: @escaping(Result<String, GitHubError>) -> Void) {
         
-        let urlRequest = createURLRequest()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             if error == nil {
@@ -76,11 +80,5 @@ struct GitHubRequest {
             
         }
         dataTask.resume()
-    }
-    
-    func createURLRequest() -> URLRequest {
-        var urlRequest = URLRequest(url: resourceURL)
-        urlRequest.setValue("token \(OAUTH_TOKEN)", forHTTPHeaderField: "Authorization")
-        return urlRequest
     }
 }
